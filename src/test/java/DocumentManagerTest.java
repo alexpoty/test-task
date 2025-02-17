@@ -1,6 +1,7 @@
 import com.alexpoty.Test_Task.DocumentManager;
 import com.alexpoty.Test_Task.DocumentManager.Document;
 import com.alexpoty.Test_Task.DocumentManager.Author;
+import com.alexpoty.Test_Task.DocumentManager.SearchRequest;
 import org.junit.Test;
 
 import java.time.Instant;
@@ -73,7 +74,7 @@ public class DocumentManagerTest {
                 .created(Instant.now())
                 .build());
 
-        DocumentManager.SearchRequest request = DocumentManager.SearchRequest.builder()
+        SearchRequest request = SearchRequest.builder()
                 .titlePrefixes(List.of("Test Document 1"))
                 .authorIds(List.of("111"))
                 .containsContents(List.of("Test Content 1"))
