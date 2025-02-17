@@ -48,11 +48,14 @@ public class Test_Task {
         public List<Document> search(SearchRequest request) {
             return storage.values().stream()
                     .filter(document -> request.getTitlePrefixes() == null ||
-                            request.getTitlePrefixes().stream().anyMatch(prefix -> document.getTitle().startsWith(prefix)))
+                            request.getTitlePrefixes().stream()
+                                    .anyMatch(prefix -> document.getTitle().startsWith(prefix)))
                     .filter(document -> request.getContainsContents() == null ||
-                            request.getContainsContents().stream().anyMatch(content -> document.getContent().contains(content)))
+                            request.getContainsContents().stream()
+                                    .anyMatch(content -> document.getContent().contains(content)))
                     .filter(document -> request.getAuthorIds() == null ||
-                            request.getAuthorIds().stream().anyMatch(author -> document.getAuthor().getId().contains(author)))
+                            request.getAuthorIds().stream()
+                                    .anyMatch(author -> document.getAuthor().getId().contains(author)))
                     .filter(document -> request.getCreatedFrom() == null ||
                             !document.getCreated().isBefore(request.getCreatedFrom()))
                     .filter(document -> request.getCreatedTo() == null ||
