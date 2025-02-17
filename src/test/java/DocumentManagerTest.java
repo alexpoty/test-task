@@ -82,6 +82,6 @@ public class DocumentManagerTest {
         List<Document> results = documentManager.search(request);
 
         assertEquals(1, results.size());
-        assertEquals("Test Document 1", results.getFirst().getTitle());
+        assertEquals(doc1.getTitle(), results.getFirst().getTitle());
     }
 }
